@@ -8,6 +8,9 @@ class ProductItem extends HTMLElement {
     if (localStorage.getItem(id) === null ){
       localStorage.setItem(id, true);
     }
+
+    var count = document.getElementById("cart-count");
+
     const shadow = this.attachShadow({mode: 'open'});
     const wrapper = document.createElement('li');
     wrapper.setAttribute('class','product');
@@ -30,12 +33,17 @@ class ProductItem extends HTMLElement {
     button.addEventListener('click',() => {
       if (localStorage.getItem(id) == 'true' ){
         localStorage.setItem(id, false);
+        button.setAttribute('onclick',"alert('Added to Cart!')");
         button.textContent = 'Remove from Cart';
         console.log("clicked!"+ id);
+        count.textContent++;
       } else{
         localStorage.setItem(id, true);
+        button.setAttribute('onclick',"alert('Removed from Cart!')");
         button.textContent = 'Add to Cart';
+        count.textContent--;
       }
+      localStorage.setItem('count', count.textContent);
     })
 
     if (localStorage.getItem(id) == 'true' ){
