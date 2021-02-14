@@ -55,7 +55,7 @@ class ProductItem extends HTMLElement {
     }
 
     const style = document.createElement('style');
-    console.log(style.isConnected);
+    //console.log(style.isConnected);
 
     style.textContent = `
     .price {

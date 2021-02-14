@@ -19,6 +19,9 @@ window.addEventListener('DOMContentLoaded', () => {
           localStorage.setItem('items', JSON.stringify(data));
           container = document.getElementById('product-list');
           for (let i = 0; i < data.length; i++) {
+            if(data[i].id == undefined){
+              console.log("this item is not defined when i = ", 1);
+            }
             let child = new ProductItem(data[i].id, data[i].image, data[i].title, data[i].title, data[i].price);
             container.appendChild(child);
           }
