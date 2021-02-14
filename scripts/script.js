@@ -28,7 +28,7 @@ window.addEventListener('DOMContentLoaded', () => {
         });
       }
     else {
-      data = localStorage.getItem('items');
+      data = JSON.parse(localStorage.getItem('items'));
       container = document.getElementById('product-list');
       for (let i = 0; i < data.length; i++) {
         let child = new ProductItem(data[i].id, data[i].image, data[i].title, data[i].title, data[i].price);
